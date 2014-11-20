@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
-	<!-- Benutzen Sie die Lösung für Übung 1 und schreiben Sie das Programm so um, 
-	     dass an Stelle der for-Schleife eine while-Schleife zum Einsatz kommt. -->
+	<!-- Schreiben Sie ein Programm, das die Quadrate der Zahlen von 0 bis 9 untereinander in einer HTML-Seite ausgibt. -->
 	<head>
 		<title>Hello World!</title>
 		<meta charset="utf-8">
-		<script type="text/javascript" src="myscript.js"></script>
+		<script type="text/javascript">
+			function square(a){
+				return a * a;
+			}
+		</script>
 	</head>
 	<body >
 		<script type="text/javascript">
 			var numbers = new Array();
 			
 			for(var i = 0; i < 10; i++){
-				numbers[i] = square(i, i);
+				numbers[i] = square(i);
 			}
 			for(var i = 0; i < 10; i ++){
 				document.writeln("Square of number ", i, " is: ", numbers[i], "<br/>");

@@ -78,7 +78,7 @@
 				return l;
 			}
 			function setNotFoundImage(img){
-				img.src = "NoPic.gif";
+				img.src = "img/links/NoPic.gif";
 				img.height = 50;
 			}
 		</script>
@@ -89,12 +89,12 @@
 			links.addLink 	= addLink;
 			Link.prototype.printEntry = printEntry;
 			with(links){
-				addLink(new Link("Google", "http://www.google.de", "Google", "Search engine", "nice", "Google.gif"));
-				addLink(new Link("Yahoo", "http://www.yahoo.de", "Yahoo", "Search engine", "ok", "Yahoo.gif"));
-				addLink(new Link("Mail.ru", "http://www.yahoo.de", "Mail.ru", "Mail", "ok", "MailRU.gif"));
-				addLink(new Link("Web.de", "http://www.web.de", "Web.de", "Mail", "ok", "WebDE.gif"));
-				addLink(new Link("Ebay.de", "http://www.ebay.de", "Ebay.de", "Shopping", "ok", "Ebay.gif"));
-				addLink(new Link("Amazon.de", "http://www.amazon.de", "Amazon", "Shopping", "ok", "Amazon.gif"));
+				addLink(new Link("Google", "http://www.google.de", "Google", "Search engine", "nice", "img/links/Google.gif"));
+				addLink(new Link("Yahoo", "http://www.yahoo.de", "Yahoo", "Search engine", "ok", "img/links/Yahoo.gif"));
+				addLink(new Link("Mail.ru", "http://www.yahoo.de", "Mail.ru", "Mail", "ok", "img/links/MailRU.gif"));
+				addLink(new Link("Web.de", "http://www.web.de", "Web.de", "Mail", "ok", "img/links/WebDE.gif"));
+				addLink(new Link("Ebay.de", "http://www.ebay.de", "Ebay.de", "Shopping", "ok", "img/links/Ebay.gif"));
+				addLink(new Link("Amazon.de", "http://www.amazon.de", "Amazon", "Shopping", "ok", "img/links/Amazon.gif"));
 			}
 			var ll = showLinks();
 			document.writeln(ll);
