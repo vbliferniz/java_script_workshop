@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie ein HTML-Dokument mit einem Formular, welches u.a. eine Auswahlliste enthält, 
+			bei der nur ein Eintrag wählbar ist. Ferner soll mit dem Formular das Löschen und Ergänzen von 
+			Einträgen möglich sein sowie das Verändern von den angezeigten Texten und den dazugehörigen Werten. 
+			Das Löschen eines Eintrags und die Anzeige von Text und Wert beziehen sich jeweils auf den aktuell 
+			gewählten Eintrag in der Auswahlliste.
+		-->
+		
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function setValue(form){
+				for(var i = 0; i < form.select.options.length; i++){
+					var option = form.select.options[i];
+					if(option.selected){
+						form.index.value = i;
+						form.value.value = option.value;
+					}
+				}
+			}
+			function addOption(){
+				alert("this");
+			}
+			function addOption(form, value){
+				if(value != ""){
+					var option = new Option();
+					option.text = value;
+					var contains = false;
+					var ops = form.select.options;
+					for(var i = 0; i < ops.length; i++){
+						if(ops[i].text == value){
+							alert("Value already existing!");
+							return;
+						}
+					}
+					form.select.add(option);						
+				}else{
+					alert("Empty field!");
+					form.addField.focus();
+				}
+			}
+			function removeItem(form){
+				for(var i = 0; i < form.select.options.length; i++){
+					var option = form.select.options[i];
+					if(option.selected){
+						form.select.remove(i);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="meinFormular">
+			<select name="select" onclick="setValue(form)">
+				<option>Red</option>
+				<option>Blue</option>
+				<option>Green</option>
+			</select>
+			<input name="index" type="text">
+			<input name="value" type="text">
+			<input name="remove" type="button" value="Remove" onclick="removeItem(this.form)"/>	
+			<br><br>
+			New Entry:<input name="addField" type="text">		
+			<input name="add" type="button" value="Add" onclick="addOption(this.form, this.form.addField.value)"/>	
+		</form>
+	</body>
+</html>

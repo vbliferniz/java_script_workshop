@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie ein HTML-Dokument mit einem Formular, welches eine Auswahlliste enthält. 
+			Sobald die Auswahl verändert wird, soll eine JavaScript-Funktion ausgeführt werden. 
+			(Dies entspricht einer einfachen Menüsteuerung.)
+		-->
+		
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function klicked(form){
+				for(var i = 0; i < form.select.options.length; i++){
+					var option = form.select.options[i];
+					if(option.selected){
+						alert(option.text);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="meinFormular">
+			<select name="select" onchange="klicked(form)">
+				<option>Red</option>
+				<option>Blue</option>
+				<option>Green</option>
+			</select>
+		</form>
+	</body>
+</html>

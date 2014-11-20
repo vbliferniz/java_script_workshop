@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie ein HTML-Dokument mit drei in einer Gruppe zusammengefassten Radioknöpfen 
+			und einem Textfeld, wobei das Textfeld immer den Wert des gewählten Radioknopfs anzeigt.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function setText(form){
+				if(form.gender[0].checked){
+					setValue(form.selectedRadio, form.gender[0].value);
+				}else if(form.gender[1].checked){
+					setValue(form.selectedRadio, form.gender[1].value);
+				}else if(form.gender[2].checked){
+					setValue(form.selectedRadio, form.gender[2].value);
+				}
+					
+			}
+			function setValue(textField, value){
+				textField.value = value;
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<input name="gender" type="radio" onchange="setText(this.form)" value="Man">Man
+			<input name="gender" type="radio" onchange="setText(this.form)" value="Woman">Woman
+			<input name="gender" type="radio" checked="checked" onchange="setText(this.form)" value="Undefined">Undefined<br>
+			<input name="selectedRadio" type="text" />
+		</form>
+	</body>
+</html>

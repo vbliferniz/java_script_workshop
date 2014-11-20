@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Angaben zur Person</title>
+		<script type="text/javascript" charset="utf-8">
+			function zeigen(){
+				var Anrede = '';
+				if(window.document.Person.Geschlecht[0].checked){
+					Anrede = 'Frau';
+				}else{
+					if(window.document.Person.Geschlecht[1].checked){
+						Anrede = 'Herr';
+					}
+				}
+				var name = window.document.Person.Vorname.value +' ' + window.document.Person.Nachname.value;
+				var Nachricht = "Sie sind: " + Anrede + " "+ name;
+				alert(Nachricht);
+			}
+		</script>
+		
+
+	</head>
+	<body>
+		<h1>Angaben zur Person</h1>
+		<form name="Person">
+			Vorname:<br>
+			<input type="text" name="Vorname" value="" size=20><br>
+			Nachname:<br>
+			<input type="text" name="Nachname" value="" size=20><br>
+			<input type="radio" name="Geschlecht"> weiblich
+			<input type="radio" name="Geschlecht"> m�nnlich
+			<input type="radio" name="Geschlecht" checked="checked"> keine Angabe<br>
+			<input type="button" value="Anzeigen" name="Anzeige" onclick="zeigen()">
+		</form>
+	</body>
+</html>

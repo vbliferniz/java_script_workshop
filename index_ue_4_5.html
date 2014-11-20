@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Jetzt kommen wir endlich zu unserer Linkliste. Bauen Sie ähnlich wie gerade eben für die Bücher eine Liste von interessanten Links auf. 
+			Folgende Eigenschaften sollen die einzelnen Objekte haben:
+
+			    Titel für den Titel der Seite
+			    Adresse für den URL
+			    Autor
+			    Thema als Oberbegriff (z.Bsp. "JavaScript" für alle Seiten, die sich mit JavaScript beschäftigen)
+			    Anmerkung für Ihre persönlichen Bemerkungen, Screenshot für den Dateinamen des Screenshots
+
+			Ist für einen Link keine Grafikdatei mit Screenshot vorhanden, soll eine Ersatzgrafik verwendet werden. Die Grafiken haben alle die gleichen Abmessungen.
+
+			Definieren Sie zusätzlich eine Methode, die eine Auflistung der eingetragenen Links mit folgenden Angaben 
+			ausgibt: Screenshot als Link, Titel als Link, Autor, Thema und Anmerkung.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function Link(titel, address, author, topic, comment, screenshot){
+				this.titel		= titel;
+				this.address	= address;
+				this.author		= author;
+				this.topic		= topic;
+				this.comment	= comment;
+				this.screenshot = screenshot;
+			}
+			function addLink(link){
+				this[this.length] = link;
+			}
+			function showLinks(){
+				
+				var linksMap = {};
+				/*
+				 * Sort Links by topic attribute
+				 */
+				for(var i = 0; i < links.length; i++){
+					var entry = links[i];
+					var entryList = linksMap[entry.topic];
+					if(!entryList){
+						entryList = new Array();
+						linksMap[entry.topic] = entryList;
+					}
+					var index = entryList.length;
+					entryList.push(entry.printEntry());
+				}
+				
+				var res = "";
+				res += "<form>";
+				res += "<dl>";				
+				for(var topic in linksMap){
+					var linksList = linksMap[topic];
+					res += "<dt>";	
+					res += topic; 
+					for(var j = 0; j < linksList.length; j++){
+						res += "<dd>";
+						res += linksList[j];
+						res += "</dd>";
+					}
+					res += "</dt>";
+				}			
+				res += "</dl>";			
+				res += "</form>";
+				return res;
+			}
+			function printEntry(){
+				var l = '<ol><li>';
+					l += "<a href='" + this.address + "'><br/>";
+					l += "<img src='" + this.screenshot + "' ";
+					l += "width='100' height='20' onerror='setNotFoundImage(this)'/> ";
+					l += this.titel;
+					l += "</a>";
+					l += "<ul>";
+					l += "<li>" + this.author  + "</li>";
+					l += "<li>" + this.topic   + "</li>";
+					l += "<li>" + this.comment + "</li>";
+					l += "</ul></li></ol>";	
+				return l;
+			}
+			function setNotFoundImage(img){
+				img.src = "NoPic.gif";
+				img.height = 50;
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var links 		= new Array();
+			links.addLink 	= addLink;
+			Link.prototype.printEntry = printEntry;
+			with(links){
+				addLink(new Link("Google", "http://www.google.de", "Google", "Search engine", "nice", "Google.gif"));
+				addLink(new Link("Yahoo", "http://www.yahoo.de", "Yahoo", "Search engine", "ok", "Yahoo.gif"));
+				addLink(new Link("Mail.ru", "http://www.yahoo.de", "Mail.ru", "Mail", "ok", "MailRU.gif"));
+				addLink(new Link("Web.de", "http://www.web.de", "Web.de", "Mail", "ok", "WebDE.gif"));
+				addLink(new Link("Ebay.de", "http://www.ebay.de", "Ebay.de", "Shopping", "ok", "Ebay.gif"));
+				addLink(new Link("Amazon.de", "http://www.amazon.de", "Amazon", "Shopping", "ok", "Amazon.gif"));
+			}
+			var ll = showLinks();
+			document.writeln(ll);
+		</script>
+	</body>
+</html>

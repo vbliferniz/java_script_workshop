@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie ein HTML-Dokument, welches ein Formular mit drei Textfeldern enthält. 
+			In den ersten beiden Textfeldern sind ausschließlich numerische Eingaben gestattet. 
+			Das dritte Textfeld soll immer dann gefüllt werden, wenn der Inhalt eines der beiden ersten 
+			Textfelder verändert wird. Es soll die Summe der Werte der beiden ersten Felder enthalten.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function setSum(form){
+				var val1 = form.firstTextField.value;
+				var val2 = form.secondTextField.value; 
+				form.sum.value = parseFloat(val1) + parseFloat(val2);
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<input name="firstTextField" type="text" onchange="setSum(this.form)"/>
+			<input name="secondTextField" type="text" onchange="setSum(this.form)"/>
+			<input name="sum" type="text"/>
+		</form>
+	</body>
+</html>

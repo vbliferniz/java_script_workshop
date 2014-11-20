@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie ein HTML-Dokument mit einem Formular, welches eine Auswahlliste und zwei Textfelder (Textarea) enthält. 
+			In der Auswahlliste können beliebige Einträge voreingetragen werden (und auch selektiert werden), die beiden Textfelder 
+			enthalten keine Einträge. Mit jeder Änderung der Auswahl in der Auswahlliste werden die beiden Textfelder angepasst. 
+			Sie enthalten jeweils die Indizes und die Werte der gewählten Einträge aus der ersten Auswahlliste.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function setValue(form){
+				var index = '';
+				var value = '';
+				var first = true;
+				for(var i = 0; i < form.select.options.length; i++){
+					var option = form.select.options[i];
+					if(option.selected){
+						if(!first){
+							index += "\n";
+							value += "\n";
+						}else{
+							first = false;
+						}
+						index += i;
+						value += option.value;
+						form.index.value = index;
+						form.value.value = value;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="meinFormular">
+			<select name="select" onclick="setValue(form)" multiple="multiple" >
+				<option>Red</option>
+				<option>Blue</option>
+				<option>Green</option>
+			</select>
+			<br>
+			<hr>
+			<br>
+			<textarea name="index" rows="10"></textarea>
+			<textarea name="value" rows="10"></textarea>
+		</form>
+	</body>
+</html>

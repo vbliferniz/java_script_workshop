@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Insert title here</title>
+		<!-- Sie haben alternative Seiten vorbereitet: eine Version für Browser, die nichts mit JavaScript anfangen können 
+			oder nur etwa den Umfang von JavaScript 1.0 beherrschen, eine andere für alle anderen. Wie würden Sie dafür sorgen, 
+			dass jeder Browser die ihm zugedachte Seite zeigt? -->
+		<script type="text/javascript" charset="utf-8">
+			if(document.images){
+				// window.location.href = "eineVielBessereSeite.html"; 
+				window.location.replace("eineVielBessereSeite.html"); //Better solution, because this method causes no entry of actual site url in browser history
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Das ist die Seite für den älteren Browser oder einen der JavaScript Version 1.1 </h1>
+	<body>
+</html>

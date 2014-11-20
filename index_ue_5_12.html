@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie ein HTML-Dokument mit einem Textfeld, welches beim Aufruf der Seite mit dem aktuellen Datum gefüllt wird.
+		-->
+		
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function setDate(textField){
+				textField.value = new Date().toLocaleString();
+			}
+		</script>
+	</head>
+	<body onload="setDate(this.meinFormular.tt)">
+		<form name="meinFormular">
+			Date: <input type="text" name="tt" size="50"/>
+		</form>
+	</body>
+</html>

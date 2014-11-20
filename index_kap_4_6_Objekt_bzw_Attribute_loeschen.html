@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Insert title here</title>
+		<script type="text/javascript" charset="utf-8">
+			function zeigeDetails(Objekt, ObjektName){
+				var Info = '<pre>' + ObjektName + ':\n';
+				var Details = '';
+				for(var attribut in Objekt){
+					Details = Details + attribut + ' = ' + Objekt[attribut] + '\n';
+				}
+				Info = Info + Details + '</pre><hr>';
+				return Info;
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			var diesesBuch = {	Titel : "Title", 
+								Verlag : "Verlag",
+								Einband : {Farbe : "gelb", Art : "Taschenbuch"},
+								Seite : 222,
+								offen : 0 };
+			diesesBuch.Autor = "to remove";			
+			document.writeln(zeigeDetails(diesesBuch, 'Dieses Buch'));
+			
+			
+			/*
+			 * Removes the Autor attribute
+			 */
+			delete diesesBuch.Autor;		
+			
+			document.writeln(zeigeDetails(diesesBuch, 'Dieses Buch'));
+		</script>
+	</body>
+</html>

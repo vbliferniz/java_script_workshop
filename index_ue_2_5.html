@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<!-- Schreiben Sie ein Programm, das ein assoziatives Array namens adresse[] definiert, dieses für die Indizes name, 
+	anschrift, plz, ort mit Werten füllt und die Werte anschließend in einer HTML-Tabelle darstellt.
+	Vergleichen Sie, was passiert, wenn man das assoziative Array genau so mit einer for-Schleife durchläuft, 
+	wie es oben mit dem Array meinArray[] vorgeführt wurde. -->
+	<head>
+		<title>Hello World!</title>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+			function th_function(val){
+				return "<th>" + val + "</th>";
+			}
+			function tr_function(val){
+				return "<tr>" + val + "</tr>";
+			}
+			function create_table(nameA, anschrift, plz, ort){				
+				var n = tr_function(th_function("name") + th_function(nameA));
+				var a = tr_function(th_function("anschrift") + th_function(anschrift));
+				var p = tr_function(th_function("plz") + th_function(plz));
+				var o = tr_function(th_function("ort") + th_function(ort));
+				var res = "<table border=\"1\">\n" + n + "\n" + a + "\n" + p + "\n" + o + "\n" + "</table>";
+				return res;
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var adresse = new Array();
+			adresse["name"] = "Vitalij";
+			adresse["anschrift"] = "Boomstrasse 2";
+			adresse["plz"] = "12345";
+			adresse["ort"] = "Köln";			
+			var tab = create_table(adresse["name"], adresse["anschrift"], adresse["plz"], adresse["ort"]);
+			document.write(tab);
+		</script>
+	</body>
+</html>

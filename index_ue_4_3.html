@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Wie w�rden Sie Objekte f�r all Ihre B�cher anlegen und sich die B�cher anschlie�end auflisten lassen? 
+			Verzichten Sie auf die Eigenschaft offen und das Auf- und Zuschlagen, die sind f�r so eine Liste nicht interessant.			
+			-->
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			/*
+			 * Constructor of custom object named "Buch"
+			 */
+			function Buch(pTitel, pVerlag, pSeiten, pFarbe, pArt){
+				this.Titel 		 = pTitel;
+				this.Verlag 	 = pVerlag;
+				this.Seiten 	 = pSeiten;
+				this.Einband	 = new Einband(pFarbe, pArt);				
+			}
+			/*
+			 * Constructor of custom object named "Einband"
+			 */	
+			function Einband(pFarbe, pArt){
+				this.Farbe = pFarbe;
+				this.Art = pArt;				
+			}
+			function add (buch) {
+				this[this.length] = buch;
+			}
+			function zeigeBuecher(){
+				var Aus = '<ol>';
+				for (var i = 0; i < meineBuecher.length; i++) {
+					Aus += '<li>' + meineBuecher[i].Titel;
+					Aus += '<ul>';
+					Aus += '<li>' + meineBuecher[i].Verlag + '</li>';
+					Aus += '<li>ca. : ' + meineBuecher[i].Seiten;
+					Aus += ' Seiten</li>';
+					Aus += '<li>' + meineBuecher[i].Einband.Art + '\/';
+					Aus += meineBuecher[i].Einband.Farbe + '</li>';
+					Aus += '</ul>';
+				}
+				Aus+= '</ol>\n';
+				Aus+= '<p>Ich besitze ';
+				Aus += meineBuecher.length + ' B�cher.</p>';
+				return Aus;
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			var meineBuecher = new Array();
+			meineBuecher.add = add;
+
+			with(meineBuecher){
+				add(new Buch("Das ist mein Buch.", "Springer Verlag", 123, "weiss", "gebunden"));
+				add(new Buch("Das ist mein anderes Buch.", "Springer Verlag", 145, "blau", "toll"));
+			}
+			
+			/* Same: 
+			 * meineBuecher.add(diesesBuch);
+			 * meineBuecher.add(nochEinBuch);
+			 */
+			
+			var res = zeigeBuecher();
+			document.writeln(res);		
+		</script>
+	</body>
+</html>

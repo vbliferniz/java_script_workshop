@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Image-Objekt</title>
+		<script type="text/javascript" charset="utf-8">
+			function print(first){
+				if(first){
+					document.writeln('============== Erstes Bild ========================', "</br>");
+					document.writeln("Access with '.' notation: ", window.document.images.erstesBild.src, "</br>");
+					document.writeln("Access with index:        ", window.document.images[0].src, "</br>");
+					document.writeln("Access with association:  ", window.document.images['erstesBild'].src, "</br>");
+					document.writeln("Width: ", window.document.images.erstesBild.width, "</br>");			
+					document.writeln("Height: ", window.document.images.erstesBild.height, "</br>");	
+				}else{
+					document.writeln('============== Zweites Bild ========================', "</br>");
+					document.writeln("Access with '.' notation: ", window.document.images.zweitesBild.src, "</br>");
+					document.writeln("Access with index:        ", window.document.images[1].src, "</br>");
+					document.writeln("Access with association:  ", window.document.images['zweitesBild'].src, "</br>");
+					document.writeln("Width: ", window.document.images.zweitesBild.width, "</br>");			
+					document.writeln("Height: ", window.document.images.zweitesBild.height, "</br>");
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<h1>Bilder eben</h1>
+		
+		<p>ein Bild:
+		<img src="Apfel.gif" name="erstesBild"
+		     width="100" height="100" alt="ein Bild">
+		</p>
+		
+		<p>und noch ein Bild:
+		<img src="Birne.gif" name="zweitesBild"
+		     width="100" height="100" alt="noch ein Bild">
+		</p>
+		
+		<script type="text/javascript" charset="utf-8">
+			print(true);
+			print(false);			
+		</script>
+	</body>
+</html>

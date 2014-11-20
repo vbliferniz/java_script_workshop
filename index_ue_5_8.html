@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie ein HTML-Dokument mit einem Formular, welches eine Auswahlliste (mit nur einem wählbaren Eintrag) 
+			und zwei Textfelder enthält. In dem ersten Textfeld soll der Index des gewählten Eintrags aus der Auswahlliste 
+			und in dem zweiten Textfeld der dazugehörige Wert angezeigt werden.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function setValue(form){
+				for(var i = 0; i < form.select.options.length; i++){
+					var option = form.select.options[i];
+					if(option.selected){
+						form.index.value = i;
+						form.value.value = option.value;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="meinFormular">
+			<select name="select" onclick="setValue(form)">
+				<option>Red</option>
+				<option>Blue</option>
+			</select>
+			<input name="index" type="text">
+			<input name="value" type="text">
+		</form>
+	</body>
+</html>

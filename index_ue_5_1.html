@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- JSchreiben Sie ein HTML-Dokument mit einem Formular, welches zwei Textfelder und einen Submit-Button enthält. 
+			Implementieren Sie Event-Handler für die beiden Textfelder, die überprüfen, dass diese vor dem Versand des Formulars gefüllt worden sind.
+			Suchen Sie durchaus nach mehreren Lösungsansätzen.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function checkFields(first, second){
+				var res = check(first) && check(second);
+				if (!res) {
+					alert("Bitte beide Felder ausfuellen!");	
+				}
+				return check(first) && check(second);
+			}
+			function check(val){
+				if(val.value == ""){
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<form onsubmit="return checkFields(this.firstTextField, this.secondTextField)">
+			<input name="firstTextField" type="text"/>
+			<input name="secondTextField" type="text"/>
+			<input type="submit" value="Submit"/>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Insert title here</title>
+		<script type="text/javascript" charset="utf-8">
+			function zuschlagen(){
+				this.offen = 0;
+			}
+			function aufschlagen(pSeite){
+				if(0 < pSeite && this.Seiten <= pSeite){
+					this.offen = pSeite;
+				}else{
+					this.offen = 0;
+				}
+			}
+			function zeigeDetails(Objekt, ObjektName){
+				var Info = '<pre>' + ObjektName + ':\n';
+				var Details = '';
+				for(var attribut in Objekt){
+					Details = Details + attribut + ' = ' + Objekt[attribut] + '\n';
+				}
+				Info = Info + Details + '</pre><hr>';
+				return Info;
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			var diesesBuch = {	Titel : "Title", 
+								Verlag : "Verlag",
+								Einband : {Farbe : "gelb", Art : "Taschenbuch"},
+								Seite : 222,
+								offen : 0,
+								zuschlagen : zuschlagen,
+								aufschlagen : aufschlagen };
+			diesesBuch.Autor = "to remove";			
+			document.writeln(zeigeDetails(diesesBuch, 'Dieses Buch'));
+			delete diesesBuch.Autor;			
+			document.writeln(zeigeDetails(diesesBuch, 'Dieses Buch'));
+		</script>
+	</body>
+</html>

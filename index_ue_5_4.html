@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Nutzen Sie das in der ersten Übung vorgestellte Formular, um eine Funktion zu implementieren, 
+			die gewährleistet, dass die Eingaben in das erste Feld numerisch sind. Das zweite Eingabefeld kann weggelassen werden.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function checkFields(first, second){
+				return check(first) && check(second);
+			}
+			function check(val){
+				if(val.name == "firstTextField"){
+					if(val.value == ""){
+						alert("Bitte das Feld ausfuellen!");
+						val.focus();
+						return false;
+					}					
+					var res = val.value.match(/[A-Z|a-z]+/g);
+					if(res != null){
+						alert("Ihre Eingabe enthaelt Buchstaben: " + res);
+						val.focus();
+						return false;
+					}
+				}
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<form onsubmit="return checkFields(this.firstTextField, this.secondTextField)">
+			<input name="firstTextField" type="text"/>
+			<input name="secondTextField" type="text"/>
+			<input type="submit" value="Submit"/>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Insert title here</title>
+		<!-- Sie wollen in das Textfeld des zweiten Formulars jeweils bei Klick auf einen der Buttons einen Text schreiben. 
+			Da das mit Hilfe der Funktion schreibeText() geschehen soll, haben Sie die Event-Handler, die den Aufruf der 
+			Funktion veranlassen sollen, schon mal vorsorglich eingefügt. Es fehlt noch die Funktion selbst. 
+			Schreiben Sie diese Funktion, wählen Sie aber jeweils eine andere Schreibweise, um das Textfeld anzusprechen. -->
+		<script type="text/javascript" charset="utf-8">
+			function schreibeText(button){
+				switch(button){
+					case 1 : {
+						document.forms[1].elements[0].value=document.forms[1].elements[1].value;
+						break;
+					}
+					case 2 : {
+						document.forms.zweitesFormular.meinTextfeld.value=document.zweitesFormular.elements.second.value;
+						break;
+					}
+					case 3 : {
+						document.forms['zweitesFormular'].elements['meinTextfeld'].value=document.forms['zweitesFormular'].elements['third'].value;
+						break;
+					}
+					default : {
+						//Do nothing
+					}
+				}
+			}	
+		</script>
+	</head>
+	<body>
+		<form name="erstesFormular">
+			<input type="hidden" name="versteckt" value="geheim">
+		</form>
+		<form name="zweitesFormular">
+			<input type="text" name="meinTextfeld" value="">
+			<input type="button" name="first" value="los geht's - Nr.1" onclick="schreibeText(1)">
+			<input type="button" name="second" value="los geht's - Nr.2" onclick="schreibeText(2)">
+			<input type="button" name="third" value="los geht's - Nr.3" onclick="schreibeText(3)">
+		</form>
+	<body>
+</html>

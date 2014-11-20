@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		<script type="text/javascript" charset="utf-8">
+			/*
+			 * Constructor of custom object named "Buch"
+			 */
+			function Buch(pTitel, pVerlag, pSeiten, pFarbe, pArt){
+				this.Titel 		 = pTitel;
+				this.Verlag 	 = pVerlag;
+				this.Seiten 	 = pSeiten;
+				this.Einband	 = new Einband(pFarbe, pArt);
+				this.offen 		 = 0;
+				this.zuschlagen  = zuschlagen;  // Reference to the method. 
+				this.aufschlagen = aufschlagen; // Reference to the method.
+			}	
+			function Einband(pFarbe, pArt){
+				this.Farbe = pFarbe;
+				this.Art = pArt;				
+			}
+			function zuschlagen(){
+				this.offen = 0;
+			}
+			function aufschlagen(pSeite){
+				if(0 < pSeite && this.Seiten <= pSeite){
+					this.offen = pSeite;
+				}else{
+					this.offen = 0;
+				}
+			}
+			function zeigeDetails(Objekt, ObjektName){
+				var Info = '<pre>' + ObjektName + ':\n';
+				var Details = '';
+				for(var attribut in Objekt){
+					Details = Details + attribut + ' = ' + Objekt[attribut] + '\n';
+				}
+				Info = Info + Details + '</pre><hr>';
+				return Info;
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+			var diesesBuch = new Buch("Das ist mein Buch.", "Springer Verlag", 123, "weiss", "gebunden");
+			var nochEinBuch = new Buch("Das ist mein anderes Buch.", "Springer Verlag", 145, "blau", "toll");
+
+
+			/*
+			 * Prototype Erweiterung, gilt für alle Objekte
+			 */
+			Buch.prototype.MeinKonstruktorAttribut = "4711";
+
+			document.writeln(zeigeDetails(diesesBuch, 'diesesBuch'));
+			document.writeln(zeigeDetails(nochEinBuch, 'nochEinBuch'));
+			
+			/*
+			 * Bereits bestehende Objekte können ebenfalls über Prototype erweitert werden. 
+			 */
+			Array.prototype.Beschreibung = "keine Angabe!";
+			var meinArray = new Array();
+			var deinArray = new Array();
+			
+			meinArray.Beschreibung = "Mein Array";
+			deinArray.Beschreibung = "Dein Array";
+			
+			
+		</script>
+	</body>
+</html>

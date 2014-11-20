@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<!-- Schreiben Sie eine HTML-Seite, die den Besucher der Seite beim Laden nach seinem Vornamen fragt 
+	     und in Erfahrung bringt, ob er mit "Du" oder "Sie" angesprochen werden möchte. 
+	     Anschließend erscheint ein kurzer Begrüßungstext, der den Namen des Besuchers hervorgehoben (fett) enthält 
+	     und ihn korrekt mit "Du" oder "Sie" anredet. Zur Hervorhebung des Namens schreiben Sie bitte eine Funktion, 
+	     die einen beliebigen Text, der als Parameter übergeben wird, in die HTML-Tags <strong> und </strong> einschließt. -->
+	<head>
+		<title>Hello World!</title>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+			function strong(text){
+				return "<strong>" + text + "</strong>";
+			}
+		</script>
+	</head>
+	<body >
+		<script type="text/javascript">
+			var name = prompt("Wie ist Ihr Vorname?", "Max");
+			var respond = confirm("Möchten Sie weiterhin mit Sie angesprochen werden?");
+			var titel = "Sie ";
+			var verb = " sind ";
+			if(respond == false){
+				titel = "Du ";
+				verb = " bist ";
+			}
+			document.writeln(titel, verb , name, "! Willkommen auf meiner Web-Site!");
+		</script>
+	</body>
+</html>

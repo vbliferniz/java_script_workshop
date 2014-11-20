@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie eine Funktion, die überprüft, ob ein String eine numerische Angabe enthält.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function checkFields(first, second){
+				return check(first) && check(second);
+			}
+			function check(val){
+				if(val.value == ""){
+					alert("Bitte das Feld ausfuellen!");
+					val.focus();
+					return false;
+				}
+				if(val.value.match(/\d+/) != null){
+					alert("Ihre Eingabe enthaelt Zahlen!");
+					val.focus();
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<form onsubmit="return checkFields(this.firstTextField, this.secondTextField)">
+			<input name="firstTextField" type="text"/>
+			<input name="secondTextField" type="text"/>
+			<input type="submit" value="Submit"/>
+		</form>
+	</body>
+</html>
