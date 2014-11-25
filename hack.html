@@ -3,14 +3,28 @@
 	<head>
 		<title>Angaben zur Person</title>
 		<script type="text/javascript" charset="utf-8">
-			var alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-			var res = new Array();
 			
-			m1(3, res);
+			var alph = "ABC";
+
+			function start(num){
+				
+				var res = new Array();
 			
-			for(var i = 0; i < res[i]; i++){
-				document.writeln(res[i]); 
+				m1(num, res);
+				res.sort(function (a, b){ 
+											if(a.val < b.val){
+												return -1;
+											} 
+											if(a.val > b.val){
+												return 1;
+											} 
+											return 0;
+										});
+				for(var i = 0; i < res.length; i++){
+					document.writeln(res[i].val, "<br>"); 
+				}
 			}
+			
 			
 			function m1(val, res){
 				for(var i = 0; i < alph.length; i++){
@@ -18,22 +32,30 @@
 					entry.val = alph[i];
 					res[i] = entry;
 				}
-				while(val > 0){
-					for(var i = 0; i < res.length; i++){
-						var lastRes = res[i]; 
+				while(val > 1){
+					var resLength = res.length;
+					for(var i = 0; i < resLength; i++){
+						var lastRes = res[i].val; 
 						for(var j = 0; j < alph.length; j++){
 							if(j == 0){
 								res[i].val += alph[j];
 							} else {
-								res[res.length] = lastRes + alph[j]; 
+								var entry = {};
+								entry.val = lastRes + alph[j];
+								res[res.length] = entry; 
 							}							
 						}
 					}
-					val --;
+					val--;
 				}
 			}
 		</script>
 	</head>
-	<body>
+	<body onload="document.forms[0].children[0].childNodes[0].data += window.alph">
+		<form>
+			<h1>I'm using this signs for generation: </h1>
+			Number of signs <input type="text" />
+			<input type="button" value="Start" onclick="start(this.form.elements[0].value)" />
+		</form>
 	</body>
 </html>
