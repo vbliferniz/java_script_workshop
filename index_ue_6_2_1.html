@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Sie kennen den netten Effekt, dass sich das zu einem Link gehörige Bild ändert, 
+			wenn man den Mauszeiger über das Bild bewegt? Schreiben Sie ein solches Skript.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript" >
+			function change(img, event){
+				if(event == 'over'){
+					img.src = "img/Birne.gif";
+				}else if(event == 'out'){//out
+					img.src = "img/links/Google.gif";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<a href="http://www.google.de">
+			<img src="img/links/Google.gif" height="50" width="100" 
+				onmouseover="change(this,'over')"
+				onmouseout="change(this, 'out')"/>
+		</a>		
+	</body>
+</html>

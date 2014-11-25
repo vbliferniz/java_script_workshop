@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Ändern Sie den Effekt aus der vorigen Übung so ab, dass ein drittes Bild erscheint, wenn man die Maustaste drückt.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript" >
+			function change(img, event){
+				if(event == 'over'){
+					img.src = "img/Birne.gif";
+				}else if(event == 'out'){//out
+					img.src = "img/links/Google.gif";
+				}else if(event == 'click'){
+					img.src = "img/Apfel.gif";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<a href="http://www.google.de">
+			<img src="img/links/Google.gif" height="50" width="100" 
+				onmouseover="change(this,'over')"
+				onmouseout="change(this, 'out')" 
+				onmousedown="change(this, 'click')" />
+		</a>		
+	</body>
+</html>

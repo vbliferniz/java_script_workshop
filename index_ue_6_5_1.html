@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie ein Skript, das eine JavaScript-gesteuerte Animation ablaufen lässt.
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript" >
+			var birne = { val : true };
+			function setTimeFunction(img){
+				setInterval(change(img), 3000);
+			}			
+			function change(){
+				var img = document.links[0].firstElementChild;
+				if(birne.val){
+					img.src = "img/Birne.gif";
+					birne.val = false;
+				} else{
+					img.src = "img/Apfel.gif";
+					birne.val = true;
+				}				
+			}
+		</script>
+	</head>
+	<body onload="setInterval(change, 1000);">
+		<form>
+			<a href="http://www.google.de">
+				<img src="img/Apfel.gif" height="100" width="100"/>
+			</a>		
+		</form>
+	</body>
+</html>

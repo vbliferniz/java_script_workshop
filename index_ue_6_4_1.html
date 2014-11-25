@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Schreiben Sie drei Funktionen, die jeweils eine Meldung liefern, wenn ein Bild geladen wurde, 
+			der Ladevorgang abgebrochen wurde oder der Ladevorgang fehlerhaft war.
+		-->
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<a href="http://www.google.de">
+			<img src="img/links/Google.gif" height="50" width="100" 
+				onerror="alert('Can not load Image!')" 
+				onload="alert('Image loaded!')" 
+				onabort="alert('Image load aborted!')"/>
+		</a>		
+	</body>
+</html>

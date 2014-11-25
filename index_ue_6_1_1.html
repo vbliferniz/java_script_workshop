@@ -1,18 +1,27 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>G</title>
-		<script type="text/javascript">
-			function setout(form, text){
-				form.outField.value = text;
+		<!-- Schreiben Sie ein Skript, welches Bilder vorab lädt. (Eine sinnvolle Anwendung wäre damit das Laden von Bildern zum Beispiel 
+			für eine Folgeseite. Die Zeit, in der die Seite betrachtet wird, vergeht so nicht ungenutzt.)
+		-->
+		<title>Insert title here</title>
+		<script type="text/javascript" lang="JavaScript">
+			//For older browsers with JavaScript Version < 1.1
+		</script>
+		<script type="text/javascript" lang="JavaScript1.1">
+			var bilder = new Array();
+			function init_pics(){
+				load_img("img/bild1.gif");
+				load_img("img/bild2.jpg");
+				load_img("img/bild3.png");
+				alert("all images loaded");
+			}
+			function load_img(img_name){
+				bilder[bilder.length] = new Image();
+				bilder[bilder.length - 1].src = img_name;
 			}
 		</script>
 	</head>
-	<body >
-		<form >
-			<a href="http://www.irgendwohin.abc?par=kxyw4711" onmouseover="setout(document.forms[0], 'mouse over')" onmouseout="setout(document.forms[0], 'mouse out')">My links</a>
-			<br><br>
-			<input name="outField" type="text">
-		</form>
+	<body onload="init_pics()">		
 	</body>
 </html>
