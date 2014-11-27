@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+	<title>Open Window</title>
+	<script type="text/javascript">
+		function showFrames(){
+			var Aus = '';
+			Aus += 'frames.length  : '+window.frames.length+'\n';
+			for (var i=0; i<window.frames.length; i++)
+			  Aus+='frames['+i+'].name : '+window.frames[i].name+'\n';
+			alert(Aus);
+		}
+	</script>
+</head>
+
+<frameset cols="30%,70%" onload="showFrames()">
+	<frame name="links" src="kap7_2/fuer_links.html">
+	<frame name="rechts" src="kap7_2/fuer_rechts.html">
+	<noframes>
+	</noframes>
+</frameset>
