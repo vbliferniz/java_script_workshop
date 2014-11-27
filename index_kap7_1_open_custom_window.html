@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+	<title>Open Window</title>
+	<script type="text/javascript">
+		
+		function openWindow(){
+			var para = '';
+			para += 'width=400,height=300';
+			para += ',status=1';
+			para += ',menubar=1';
+			para += ',scrollbars=1';
+			para += ',resizable=1';
+			para += ',toolbar=0';
+			para += ',location=0';
+			para += ',directories=0';
+			window.neu = window.open("index_kap7_1_subWindow.html", "new_window", para);
+		}
+	</script>
+</head>
+<body>
+	<input type="button" onclick="openWindow()" value="Open Window!">
+	<a href="javascript:for(var i in self.neu) document.writeln(i, '<br>')">&uuml;ber</a> <kbd>neu</kbd><br>
+</body>

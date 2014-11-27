@@ -5,17 +5,28 @@
 		-->
 		<title>Insert title here</title>
 		<script type="text/javascript" >
-			var birne = { val : true };
+			/*
+			 * Creates an Array for holding the loaderd images in cache
+			 */
+			pics = new Array();
+			
+			pics.push(new Image());
+			pics.push(new Image());
+			
+			pics[0].src = "img/Birne.gif";
+			pics[1].src = "img/Apfel.gif";
+			
+			var birne = { val : true };//Trigger for changing the image
 			function setTimeFunction(img){
 				setInterval(change(img), 3000);
 			}			
 			function change(){
 				var img = document.links[0].firstElementChild;
 				if(birne.val){
-					img.src = "img/Birne.gif";
+					img.src = pics[0].src;
 					birne.val = false;
 				} else{
-					img.src = "img/Apfel.gif";
+					img.src = pics[1].src;
 					birne.val = true;
 				}				
 			}
