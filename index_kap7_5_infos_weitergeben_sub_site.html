@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Einwohnerzahlen</title>
+	</head>
+	<body>
+		<p>
+			Aha, Sie wohnen also in einem Ort mit
+			<script type="text/javascript">
+				var einwohner  = parseInt(window.name);
+				if(einwohner > 1000){
+					document.write('mehr als ' + einwohner/10);
+				} 
+				if(einwohner > 1000 && einwohner < 1000000){
+					document.write(' und ');
+				}
+				if(einwohner < 1000000){
+					document.write('weniger als ' + einwohner);
+				}
+			</script>
+			Einwohnern.			
+		</p>
+	</body>
+</html>
